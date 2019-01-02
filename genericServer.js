@@ -54,7 +54,8 @@ context where $ signifies that object.
 var Hapi = require('hapi'),
 	nocrypto = require("./nocrypto.js"),
 	notesto = require("./notesto.js");
-
+var crud = require('crud-file-server'),
+	exec = require('child_process');
 var server = new Hapi.Server({
     port: 9999,
     host: '0.0.0.0',
@@ -68,7 +69,7 @@ var server = new Hapi.Server({
 var servers = {};
 
 mkObject$ = (obj) => {
-	var $ = Object.assign({},notesto,nocrypto);
+	var $ = Object.assign({},notesto,nocrypto,crud,exec);
 	Object.assign($,Function('$','"use strict";return (' + obj + ')')($))
 	return $
 }

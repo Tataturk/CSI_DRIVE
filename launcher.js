@@ -42,6 +42,8 @@ AccessManager: a service which checks access rights
 
 var Hapi = require('hapi'),
 	nt = require("./notesto.js");
+var crud = require('crud-file-server');
+var exec = require('child_process');
 (function(nt){
 
 	//$.DELETE('localhost:9999/reset');
@@ -196,6 +198,24 @@ var Hapi = require('hapi'),
 		}`)
 	.then(nt.expect(/^SubServer.*$/,'Start a Subserver'))
 
+	nt.xPOSTjson('localhost:9999/create',
+	`{ name: 'File-server',
+		port: 10006,
+		version: 1,
+		init: () => { $.trace(1,'storage$init:1')
+			$.exec('node C:/Users/Gebruiker/Downloads/CSI_DRIVE/CSI_DRIVE/node_modules/crud-file-server/bin/crud-file-server -p 3300 -f node_modules/crud-file-server/example', (err, stdout, stderr) => {
+		  	if (err) {
+			console.error(err);
+			  }
+			  })
+		},
+		POST:	{
+		},
+		GET:	{
+			
+		}
+	}`)
+	.then(nt.expect(/^SubServer.*$/,'Start a Subserver'))
 
 	
 }(nt));
