@@ -212,6 +212,11 @@ var exec = require('child_process');
 		POST:	{
 		},
 		GET:	{
+			"": ($) => {
+					
+					var text = '<h1>ugay</h1>';
+					return text;
+				}
 			
 		}
 	}`)
