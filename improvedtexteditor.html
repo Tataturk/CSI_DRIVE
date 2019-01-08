@@ -7,5 +7,32 @@
     <div id="header"></div>
     <div id="content" contenteditable="true"></div>
 
-    <script src="improvedtexteditor.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jeditable.js/2.0.2/jquery.jeditable.min.js"></script>
+    <script src = "./nocrypto.js"></script>
+    <script>
+    document.getElementById("header").innerHTML =
+        localStorage["header"] || "Naam van bestand.txt";
+    document.getElementById("content").innerHTML =
+        localStorage["content"] || "Hier komt text van geopende bestand.";
+
+    setInterval(function()  {
+        localStorage.setItem("header",document.getElementById("header").innerHTML);
+        localStorage.setItem("content",document.getElementById("content").innerHTML);
+        localStorage["header"] || document.getElementById("header").innerHTML
+        localStorage["content"] || document.getElementById("content").innerHTML
+    },1000);
+    </script>
+
+    <script>
+        $(document).ready(function() {
+    $("#content").ready(function() {
+        $.ajax({
+            url : "helloworld.txt",
+            dataType: "text",
+            success : function (data) {
+                $(".text").html(data);
+
+        var 
+    </script>
 </html>

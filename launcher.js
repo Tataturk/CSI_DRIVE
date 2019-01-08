@@ -206,16 +206,18 @@ var exec = require('child_process');
 			$.exec('node C:/Users/Gebruiker/Downloads/CSI_DRIVE/CSI_DRIVE/node_modules/crud-file-server/bin/crud-file-server -p 3300 -f node_modules/crud-file-server/example', (err, stdout, stderr) => {
 		  	if (err) {
 			console.error(err);
+			var path;
 			  }
 			  })
 		},
 		POST:	{
+			"path": ($) => {
+				path = $.BODY.path
+			}
 		},
 		GET:	{
-			"": ($) => {
-					
-					var text = '<h1>ugay</h1>';
-					return text;
+			"data": ($) => {
+					return path;
 				}
 			
 		}

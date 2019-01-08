@@ -1,9 +1,12 @@
+import jquery;
 document.getElementById("header").innerHTML =
-  localStorage["title"] || "Just Write"; // default text
+  localStorage["header"] || "Naam van bestand.txt";
 document.getElementById("content").innerHTML =
-  localStorage["text"] || "hier komt ";
+  localStorage["content"] || "Hier komt text van geopende bestand.";
 
 setInterval(function()  {
-    localStorage["title"] || document.getElementById("header").innerHTML
-    localStorage["text"] || document.getElementById("content").innerHTML
+  localStorage.setItem("header",document.getElementById("header").innerHTML);
+  localStorage.setItem("content",document.getElementById("content").innerHTML);
+  localStorage["header"] || document.getElementById("header").innerHTML
+  localStorage["content"] || document.getElementById("content").innerHTML
 },1000);

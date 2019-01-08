@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
+
+body    {
+
+}
+
+div:focus   {
+    outline: none;
+}
+#header {
+    font-family: 'Staatliches', 'semi-bold';
+    font-size: 4em;
+    text-align: center;
+}
+
+#content    {
+    border-left: 5px solid black;
+    padding-left: 2px;
+    font-size: 1.2em;
+    margin-left: 25%;
+    max-width: 50%;
+}
